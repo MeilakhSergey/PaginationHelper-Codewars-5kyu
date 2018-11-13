@@ -66,9 +66,7 @@ public class PaginationHelper<I> {
     public int pageIndex(int itemIndex) {
         if (itemIndex < 0 || itemIndex > collection.size() - 1)
             return -1;
-        if (itemIndex == 0)
-            return 0;
-        return (itemIndex % itemsPerPage == 0) ? itemIndex / itemsPerPage - 1 : itemIndex / itemsPerPage;
+        return itemIndex / itemsPerPage;
     }
 
 }
