@@ -17,7 +17,7 @@ public class PaginationHelper<I> {
         System.out.println(ph.pageIndex(2));
         System.out.println(ph.pageIndex(20));
         System.out.println(ph.pageIndex(-10));
-        System.out.println(ph.pageIndex(4));
+        System.out.println(ph.pageIndex(0));
     }
 
     private ArrayList<I> collection;
@@ -66,6 +66,8 @@ public class PaginationHelper<I> {
     public int pageIndex(int itemIndex) {
         if (itemIndex < 0 || itemIndex > collection.size() - 1)
             return -1;
+        if (itemIndex == 0)
+            return 0;
         return (itemIndex % itemsPerPage == 0) ? itemIndex / itemsPerPage - 1 : itemIndex / itemsPerPage;
     }
 
